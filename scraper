@@ -1,0 +1,124 @@
+from playwright.sync_api import sync_playwright
+import time
+import csv
+
+
+def webscrapper(web_url, file_name):
+    print("Thank you for sharing web link and file name.\nWeb scraping in progress...")
+
+    hotels_data = []
+    collected_links = set()
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=False)
+        page = browser.new_page()
+        page.goto(web_url, timeout=60000)
+        page.wait_for_selector('[data-element-name="property-card-content"]', timeout=60000)
+
+        same_rounds = 0
+
+        while True:
+            cards = page.locator('[data-element-name="property-card-content"]')
+
+            for i in range(cards.count()):
+                card = cards.nth(i)
+
+                # -------- Hotel name
+                name_elem = card.locator('[data-selenium="hotel-name"]')
+                name = name_elem.text_content().strip() if name_elem.count() > 0 else "N/A"
+
+                # -------- Location
+                location = "N/A"
+                location_elem = card.locator('[label]')
+                if location_elem.count() > 0:
+                    label = location_elem.nth(0).get_attribute("label")
+                    if label:
+                        location = label.split(",")[0].strip()
+
+                # -------- Price
+                price_elem = card.locator('[data-selenium="display-price"]')
+                price = (
+                    price_elem.text_content().replace(",", "").strip()
+                    if price_elem.count() > 0 else "N/A"
+                )
+
+                # -------- Rating score
+                rating_score_elem = card.locator('span.ibfzsL')
+                rating_score = (
+                    rating_score_elem.first.text_content().strip()
+                    if rating_score_elem.count() > 0 else "N/A"
+                )
+
+                # -------- Rating text
+                rating_text_elem = card.locator('span.gyQLIF')
+                rating_text = (
+                    rating_text_elem.first.text_content().strip()
+                    if rating_text_elem.count() > 0 else "N/A"
+                )
+
+                # -------- Review count
+                review_elem = card.locator('p.jcDaMS')
+                reviews = (
+                    review_elem.first.text_content()
+                    .replace("reviews", "")
+                    .replace(",", "")
+                    .strip()
+                    if review_elem.count() > 0 else "N/A"
+                )
+
+                # -------- Hotel link (card itself is <a>)
+                link = card.get_attribute("href")
+                if link:
+                    if not link.startswith("http"):
+                        link = "https://www.agoda.com" + link
+                else:
+                    link = "N/A"   
+
+            # -------- Skip rows where link is the only valid field
+                non_link_fields = [name, location, price, rating_score, rating_text, reviews]
+
+                if all(v == "N/A" for v in non_link_fields):
+                    continue
+            # -------- DUPLICATE CHECK  
+                if link in collected_links:
+                    continue
+            # -------- SAVE UNIQUE HOTEL
+                collected_links.add(link)
+                hotels_data.append([
+                    name, location, price,
+                    rating_score, rating_text,
+                    reviews, link
+                ])
+
+            # Scroll
+            prev_len = len(hotels_data)
+            page.mouse.wheel(0, 3000)
+            time.sleep(1.2)
+
+            if len(hotels_data) == prev_len:
+                same_rounds += 1
+            else:
+                same_rounds = 0
+
+            if same_rounds >= 3:
+                break
+
+        browser.close()
+
+    # -------- Save CSV
+    with open(f"{file_name}.csv", "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow([
+            "Hotel", "Location", "Price",
+            "Rating Score", "Rating Text",
+            "Review Count", "Link"
+        ])
+        writer.writerows(hotels_data)
+
+    print(f"Scraping complete. Saved {len(hotels_data)} hotels to {file_name}.csv")
+
+if __name__ == "__main__":
+    url = input("Please enter website URL: ")
+    file_name = input("Please enter output file name (without .csv): ")
+
+    webscrapper(url, file_name)
