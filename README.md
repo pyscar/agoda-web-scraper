@@ -36,5 +36,7 @@ The scraper collects:
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/your-username/agoda-web-scraper.git
+git clone https://github.com/pyscar/agoda-web-scraper.git
 cd agoda-web-scraper
+
+
