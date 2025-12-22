@@ -40,8 +40,7 @@ git clone https://github.com/pyscar/agoda-web-scraper.git
 cd agoda-web-scraper
 ```
 ### 2️⃣ Create and activate a virtual environment (recommended)
-```bash
-```
+
 **Windows**
 ```
 python -m venv .venv
@@ -113,11 +112,7 @@ Please respect Agoda’s terms of service and website policies when scraping.
 
 ---
 
-## 📜 License
 
-MIT License
-
-```
 
 
 
