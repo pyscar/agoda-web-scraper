@@ -1,10 +1,13 @@
 # 🏨 Agoda Hotel Web Scraper
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python\&logoColor=white)](https://www.python.org/)
+[![Playwright](https://img.shields.io/badge/Playwright-Automation-purple?logo=playwright\&logoColor=white)](https://playwright.dev/)
+[![VS Code](https://img.shields.io/badge/VS%20Code-Editor-blue?logo=visual-studio-code\&logoColor=white)](https://code.visualstudio.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?logo=github\&logoColor=white)](https://github.com/pyscar/agoda-web-scraper)
 [![Education](https://img.shields.io/badge/Educational-Purpose-orange)](https://github.com/pyscar/agoda-web-scraper)
 
 A **Python web scraper** built with **Playwright** to extract hotel data from Agoda search result pages.
-This project demonstrates a reliable, automated workflow to collect, clean, and save hotel information in CSV format.
+This project demonstrates a robust workflow to collect, clean, and save hotel information in CSV format.
 
 ---
 
@@ -14,7 +17,7 @@ This project demonstrates a reliable, automated workflow to collect, clean, and 
 * Removes duplicate hotels automatically
 * Skips invalid or empty rows
 * Generates clean CSV output
-* Built on **Playwright** for robust browser automation
+* Built on **Playwright** for reliable browser automation
 
 ---
 
@@ -84,7 +87,7 @@ You will be prompted to provide:
 * Agoda search URL
 * Output CSV file name (without `.csv`)
 
-The scraper will then automatically fetch and save hotel data.
+The scraper will fetch and save hotel data automatically.
 
 ---
 
@@ -107,5 +110,3 @@ The generated CSV file includes:
 This project is intended **for educational purposes only**.
 Please respect Agoda’s **terms of service** and website policies when scraping.
 
-
-Do you want me to do that next?
