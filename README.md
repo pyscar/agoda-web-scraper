@@ -1,51 +1,49 @@
-# Agoda Hotel Web Scraper
+# 🏨 Agoda Hotel Web Scraper
 
-A Python web scraper built with **Playwright** to extract hotel data from Agoda search result pages.
+[![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python\&logoColor=white)](https://www.python.org/)
+[![Education](https://img.shields.io/badge/Educational-Purpose-orange)](https://github.com/pyscar/agoda-web-scraper)
 
-The scraper collects:
-- Hotel name
-- Location
-- Price
-- Rating score
-- Rating text
-- Review count
-- Valid hotel page link
-
+A **Python web scraper** built with **Playwright** to extract hotel data from Agoda search result pages.
+This project demonstrates a reliable, automated workflow to collect, clean, and save hotel information in CSV format.
 
 ---
 
-## 🚀 Features
+## 📋 Features
 
-- Handles dynamic scrolling
-- Removes duplicate hotels
-- Skips invalid / empty rows
-- Outputs clean CSV data
-- Uses Playwright for reliability
+* Handles dynamic scrolling and lazy-loaded content
+* Removes duplicate hotels automatically
+* Skips invalid or empty rows
+* Generates clean CSV output
+* Built on **Playwright** for robust browser automation
 
 ---
 
 ## 🛠️ Tech Stack
 
-- Python 3.9+
-- Playwright (Chromium)
-- CSV
+* **Python 3.9+**
+* **Playwright (Chromium)**
+* **CSV** for data storage
 
 ---
 
-## 📦 Installation
+## ⚡ Installation
 
 ### 1️⃣ Clone the repository
-```
+
+```bash
 git clone https://github.com/pyscar/agoda-web-scraper.git
 cd agoda-web-scraper
 ```
+
 ### 2️⃣ Create and activate a virtual environment (recommended)
 
 **Windows**
-```
+
+```bash
 python -m venv .venv
 .venv\Scripts\activate
 ```
+
 **Mac / Linux**
 
 ```bash
@@ -58,15 +56,12 @@ source .venv/bin/activate
 ```bash
 python -m pip install --upgrade pip
 ```
----
 
 ### 4️⃣ Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
-
----
 
 ### 5️⃣ Install Playwright browsers
 
@@ -84,36 +79,33 @@ Run the scraper:
 python scraper.py
 ```
 
-You will be prompted to enter:
+You will be prompted to provide:
 
 * Agoda search URL
 * Output CSV file name (without `.csv`)
+
+The scraper will then automatically fetch and save hotel data.
 
 ---
 
 ## 📄 Output
 
-The scraper generates a CSV file containing:
+The generated CSV file includes:
 
-* Hotel
+* Hotel name
 * Location
 * Price
-* Rating Score
-* Rating Text
-* Review Count
-* Link
+* Rating score
+* Rating text
+* Review count
+* Hotel page link
 
 ---
 
 ## ⚠️ Disclaimer
 
-This project is intended for **educational purposes only**.
-Please respect Agoda’s terms of service and website policies when scraping.
-
----
+This project is intended **for educational purposes only**.
+Please respect Agoda’s **terms of service** and website policies when scraping.
 
 
-
-
-
-
+Do you want me to do that next?
