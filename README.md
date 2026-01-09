@@ -104,9 +104,11 @@ The generated CSV file includes:
 * Hotel page link
 
 ---
-
+## Complete video link for the project
+* video link -> https://www.youtube.com/watch?v=ZOHx5c_UyIk
 ## ⚠️ Disclaimer
 
 This project is intended **for educational purposes only**.
 Please respect Agoda’s **terms of service** and website policies when scraping.
+
 
