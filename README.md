@@ -104,11 +104,22 @@ The generated CSV file includes:
 * Hotel page link
 
 ---
-## Complete video link for the project
-* video link -> https://www.youtube.com/watch?v=ZOHx5c_UyIk
+
 ## ⚠️ Disclaimer
 
 This project is intended **for educational purposes only**.
 Please respect Agoda’s **terms of service** and website policies when scraping.
+
+## 👤 Author
+
+**Oscar Kiamba**
+Computer Science (AI & ML) | Data science & Ml Enthusiast
+
+📫 Connect with me on GitHub & LinkedIn
+👉 https://github.com/pyscar
+👉 https://www.linkedin.com/in/oscar-kiamba/
+
+## Complete video link for the project
+* video link -> https://www.youtube.com/watch?v=ZOHx5c_UyIk
 
 
